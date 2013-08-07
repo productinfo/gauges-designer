@@ -2,6 +2,7 @@
 ShinobiCharts.embeddedframework
 ShinobiGrids.embeddedframework
 ShinobiEssentials.embeddedframework
+ShinobiGauges.framework
 
 # Xcode
 .DS_Store
@@ -20,3 +21,4 @@ profile
 DerivedData
 .idea/
 *.hmap
+

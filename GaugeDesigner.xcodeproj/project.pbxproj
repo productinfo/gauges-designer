@@ -1,0 +1,460 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		472D935F17AFB73D008C432A /* gaugeTabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 472D935E17AFB73D008C432A /* gaugeTabIcon.png */; };
+		472D936317AFB909008C432A /* axisTabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 472D936017AFB909008C432A /* axisTabIcon.png */; };
+		472D936417AFB909008C432A /* needleTabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 472D936117AFB909008C432A /* needleTabIcon.png */; };
+		472D936517AFB909008C432A /* rangeTabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 472D936217AFB909008C432A /* rangeTabIcon.png */; };
+		472D936A17AFBA07008C432A /* axisTabIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 472D936617AFBA07008C432A /* axisTabIcon@2x.png */; };
+		472D936B17AFBA07008C432A /* gaugeTabIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 472D936717AFBA07008C432A /* gaugeTabIcon@2x.png */; };
+		472D936C17AFBA07008C432A /* needleTabIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 472D936817AFBA07008C432A /* needleTabIcon@2x.png */; };
+		472D936D17AFBA07008C432A /* rangeTabIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 472D936917AFBA07008C432A /* rangeTabIcon@2x.png */; };
+		47A0667617ABE0C600557B2B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0667517ABE0C600557B2B /* UIKit.framework */; };
+		47A0667817ABE0C600557B2B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0667717ABE0C600557B2B /* Foundation.framework */; };
+		47A0667A17ABE0C600557B2B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A0667917ABE0C600557B2B /* CoreGraphics.framework */; };
+		47A0668017ABE0C600557B2B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47A0667E17ABE0C600557B2B /* InfoPlist.strings */; };
+		47A0668217ABE0C600557B2B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A0668117ABE0C600557B2B /* main.m */; };
+		47A0668617ABE0C600557B2B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A0668517ABE0C600557B2B /* AppDelegate.m */; };
+		47A0668817ABE0C600557B2B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A0668717ABE0C600557B2B /* Default.png */; };
+		47A0668A17ABE0C600557B2B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A0668917ABE0C600557B2B /* Default@2x.png */; };
+		47A0668C17ABE0C600557B2B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A0668B17ABE0C600557B2B /* Default-568h@2x.png */; };
+		47A0668F17ABE0C600557B2B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A0668E17ABE0C600557B2B /* ViewController.m */; };
+		47A0669517ABE0C600557B2B /* ViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47A0669317ABE0C600557B2B /* ViewController_iPad.xib */; };
+		47A0669E17ABE24B00557B2B /* GaugeControlPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A0669D17ABE24B00557B2B /* GaugeControlPanel.m */; };
+		47A066A117ABE25600557B2B /* AxisControlPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A066A017ABE25600557B2B /* AxisControlPanel.m */; };
+		47A066A417ABE26000557B2B /* NeedleControlPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A066A317ABE26000557B2B /* NeedleControlPanel.m */; };
+		47A066A717ABE27000557B2B /* RangeControlPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A066A617ABE27000557B2B /* RangeControlPanel.m */; };
+		47A066AD17ABED8800557B2B /* ShinobiGauges.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A066AC17ABED8800557B2B /* ShinobiGauges.framework */; };
+		47A066BB17ABEE4D00557B2B /* ColorPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A066B317ABEE4D00557B2B /* ColorPickerController.m */; };
+		47A066BC17ABEE4D00557B2B /* ColorPickerGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A066B517ABEE4D00557B2B /* ColorPickerGradientView.m */; };
+		47A066BD17ABEE4D00557B2B /* CrosshairSelector.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A066B617ABEE4D00557B2B /* CrosshairSelector.png */; };
+		47A066BE17ABEE4D00557B2B /* CrosshairSelector@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A066B717ABEE4D00557B2B /* CrosshairSelector@2x.png */; };
+		47A066BF17ABEE4D00557B2B /* HorizontalSelector.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A066B817ABEE4D00557B2B /* HorizontalSelector.png */; };
+		47A066C017ABEE4D00557B2B /* HorizontalSelector@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A066B917ABEE4D00557B2B /* HorizontalSelector@2x.png */; };
+		47A066C117ABEE4D00557B2B /* HueSaturationGradient.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A066BA17ABEE4D00557B2B /* HueSaturationGradient.png */; };
+		47A066C417ABEE5A00557B2B /* CustomSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A066C317ABEE5A00557B2B /* CustomSlider.m */; };
+		47A066CB17ABEF1900557B2B /* CustomControls.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A066CA17ABEF1800557B2B /* CustomControls.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		472D935E17AFB73D008C432A /* gaugeTabIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gaugeTabIcon.png; sourceTree = "<group>"; };
+		472D936017AFB909008C432A /* axisTabIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = axisTabIcon.png; sourceTree = "<group>"; };
+		472D936117AFB909008C432A /* needleTabIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = needleTabIcon.png; sourceTree = "<group>"; };
+		472D936217AFB909008C432A /* rangeTabIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rangeTabIcon.png; sourceTree = "<group>"; };
+		472D936617AFBA07008C432A /* axisTabIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "axisTabIcon@2x.png"; sourceTree = "<group>"; };
+		472D936717AFBA07008C432A /* gaugeTabIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gaugeTabIcon@2x.png"; sourceTree = "<group>"; };
+		472D936817AFBA07008C432A /* needleTabIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "needleTabIcon@2x.png"; sourceTree = "<group>"; };
+		472D936917AFBA07008C432A /* rangeTabIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rangeTabIcon@2x.png"; sourceTree = "<group>"; };
+		47A0667217ABE0C600557B2B /* GaugeDesigner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GaugeDesigner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		47A0667517ABE0C600557B2B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		47A0667717ABE0C600557B2B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		47A0667917ABE0C600557B2B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		47A0667D17ABE0C600557B2B /* GaugeDesigner-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GaugeDesigner-Info.plist"; sourceTree = "<group>"; };
+		47A0667F17ABE0C600557B2B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		47A0668117ABE0C600557B2B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		47A0668317ABE0C600557B2B /* GaugeDesigner-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GaugeDesigner-Prefix.pch"; sourceTree = "<group>"; };
+		47A0668417ABE0C600557B2B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		47A0668517ABE0C600557B2B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		47A0668717ABE0C600557B2B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		47A0668917ABE0C600557B2B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		47A0668B17ABE0C600557B2B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		47A0668D17ABE0C600557B2B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		47A0668E17ABE0C600557B2B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		47A0669417ABE0C600557B2B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController_iPad.xib; sourceTree = "<group>"; };
+		47A0669C17ABE24B00557B2B /* GaugeControlPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GaugeControlPanel.h; sourceTree = "<group>"; };
+		47A0669D17ABE24B00557B2B /* GaugeControlPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GaugeControlPanel.m; sourceTree = "<group>"; };
+		47A0669F17ABE25600557B2B /* AxisControlPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AxisControlPanel.h; sourceTree = "<group>"; };
+		47A066A017ABE25600557B2B /* AxisControlPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AxisControlPanel.m; sourceTree = "<group>"; };
+		47A066A217ABE26000557B2B /* NeedleControlPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NeedleControlPanel.h; sourceTree = "<group>"; };
+		47A066A317ABE26000557B2B /* NeedleControlPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NeedleControlPanel.m; sourceTree = "<group>"; };
+		47A066A517ABE27000557B2B /* RangeControlPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RangeControlPanel.h; sourceTree = "<group>"; };
+		47A066A617ABE27000557B2B /* RangeControlPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RangeControlPanel.m; sourceTree = "<group>"; };
+		47A066A917ABE6F000557B2B /* ControlPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlPanel.h; sourceTree = "<group>"; };
+		47A066AC17ABED8800557B2B /* ShinobiGauges.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShinobiGauges.framework; sourceTree = "<group>"; };
+		47A066B217ABEE4D00557B2B /* ColorPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerController.h; sourceTree = "<group>"; };
+		47A066B317ABEE4D00557B2B /* ColorPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerController.m; sourceTree = "<group>"; };
+		47A066B417ABEE4D00557B2B /* ColorPickerGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerGradientView.h; sourceTree = "<group>"; };
+		47A066B517ABEE4D00557B2B /* ColorPickerGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerGradientView.m; sourceTree = "<group>"; };
+		47A066B617ABEE4D00557B2B /* CrosshairSelector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrosshairSelector.png; sourceTree = "<group>"; };
+		47A066B717ABEE4D00557B2B /* CrosshairSelector@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CrosshairSelector@2x.png"; sourceTree = "<group>"; };
+		47A066B817ABEE4D00557B2B /* HorizontalSelector.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HorizontalSelector.png; sourceTree = "<group>"; };
+		47A066B917ABEE4D00557B2B /* HorizontalSelector@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HorizontalSelector@2x.png"; sourceTree = "<group>"; };
+		47A066BA17ABEE4D00557B2B /* HueSaturationGradient.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HueSaturationGradient.png; sourceTree = "<group>"; };
+		47A066C217ABEE5A00557B2B /* CustomSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomSlider.h; sourceTree = "<group>"; };
+		47A066C317ABEE5A00557B2B /* CustomSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomSlider.m; sourceTree = "<group>"; };
+		47A066C917ABEF1800557B2B /* CustomControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomControls.h; sourceTree = "<group>"; };
+		47A066CA17ABEF1800557B2B /* CustomControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomControls.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		47A0666F17ABE0C600557B2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47A0667617ABE0C600557B2B /* UIKit.framework in Frameworks */,
+				47A0667817ABE0C600557B2B /* Foundation.framework in Frameworks */,
+				47A0667A17ABE0C600557B2B /* CoreGraphics.framework in Frameworks */,
+				47A066AD17ABED8800557B2B /* ShinobiGauges.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		472D935D17AFB70E008C432A /* PanelIcons */ = {
+			isa = PBXGroup;
+			children = (
+				472D936617AFBA07008C432A /* axisTabIcon@2x.png */,
+				472D936717AFBA07008C432A /* gaugeTabIcon@2x.png */,
+				472D936817AFBA07008C432A /* needleTabIcon@2x.png */,
+				472D936917AFBA07008C432A /* rangeTabIcon@2x.png */,
+				472D936017AFB909008C432A /* axisTabIcon.png */,
+				472D936117AFB909008C432A /* needleTabIcon.png */,
+				472D936217AFB909008C432A /* rangeTabIcon.png */,
+				472D935E17AFB73D008C432A /* gaugeTabIcon.png */,
+			);
+			path = PanelIcons;
+			sourceTree = "<group>";
+		};
+		47A0666917ABE0C600557B2B = {
+			isa = PBXGroup;
+			children = (
+				47A0667B17ABE0C600557B2B /* GaugeDesigner */,
+				47A0667417ABE0C600557B2B /* Frameworks */,
+				47A0667317ABE0C600557B2B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		47A0667317ABE0C600557B2B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				47A0667217ABE0C600557B2B /* GaugeDesigner.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		47A0667417ABE0C600557B2B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				47A066AC17ABED8800557B2B /* ShinobiGauges.framework */,
+				47A0667517ABE0C600557B2B /* UIKit.framework */,
+				47A0667717ABE0C600557B2B /* Foundation.framework */,
+				47A0667917ABE0C600557B2B /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		47A0667B17ABE0C600557B2B /* GaugeDesigner */ = {
+			isa = PBXGroup;
+			children = (
+				47A066A817ABE28B00557B2B /* Common */,
+				47A0669B17ABE22300557B2B /* Panels */,
+				47A0668417ABE0C600557B2B /* AppDelegate.h */,
+				47A0668517ABE0C600557B2B /* AppDelegate.m */,
+				47A0668D17ABE0C600557B2B /* ViewController.h */,
+				47A0668E17ABE0C600557B2B /* ViewController.m */,
+				47A0669317ABE0C600557B2B /* ViewController_iPad.xib */,
+				47A0667C17ABE0C600557B2B /* Supporting Files */,
+			);
+			path = GaugeDesigner;
+			sourceTree = "<group>";
+		};
+		47A0667C17ABE0C600557B2B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				47A0667D17ABE0C600557B2B /* GaugeDesigner-Info.plist */,
+				47A0667E17ABE0C600557B2B /* InfoPlist.strings */,
+				47A0668117ABE0C600557B2B /* main.m */,
+				47A0668317ABE0C600557B2B /* GaugeDesigner-Prefix.pch */,
+				47A0668717ABE0C600557B2B /* Default.png */,
+				47A0668917ABE0C600557B2B /* Default@2x.png */,
+				47A0668B17ABE0C600557B2B /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		47A0669B17ABE22300557B2B /* Panels */ = {
+			isa = PBXGroup;
+			children = (
+				472D935D17AFB70E008C432A /* PanelIcons */,
+				47A0669C17ABE24B00557B2B /* GaugeControlPanel.h */,
+				47A0669D17ABE24B00557B2B /* GaugeControlPanel.m */,
+				47A0669F17ABE25600557B2B /* AxisControlPanel.h */,
+				47A066A017ABE25600557B2B /* AxisControlPanel.m */,
+				47A066A217ABE26000557B2B /* NeedleControlPanel.h */,
+				47A066A317ABE26000557B2B /* NeedleControlPanel.m */,
+				47A066A517ABE27000557B2B /* RangeControlPanel.h */,
+				47A066A617ABE27000557B2B /* RangeControlPanel.m */,
+				47A066A917ABE6F000557B2B /* ControlPanel.h */,
+			);
+			path = Panels;
+			sourceTree = "<group>";
+		};
+		47A066A817ABE28B00557B2B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				47A066C217ABEE5A00557B2B /* CustomSlider.h */,
+				47A066C317ABEE5A00557B2B /* CustomSlider.m */,
+				47A066B117ABEE4D00557B2B /* ColourPicker */,
+				47A066C917ABEF1800557B2B /* CustomControls.h */,
+				47A066CA17ABEF1800557B2B /* CustomControls.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		47A066B117ABEE4D00557B2B /* ColourPicker */ = {
+			isa = PBXGroup;
+			children = (
+				47A066B217ABEE4D00557B2B /* ColorPickerController.h */,
+				47A066B317ABEE4D00557B2B /* ColorPickerController.m */,
+				47A066B417ABEE4D00557B2B /* ColorPickerGradientView.h */,
+				47A066B517ABEE4D00557B2B /* ColorPickerGradientView.m */,
+				47A066B617ABEE4D00557B2B /* CrosshairSelector.png */,
+				47A066B717ABEE4D00557B2B /* CrosshairSelector@2x.png */,
+				47A066B817ABEE4D00557B2B /* HorizontalSelector.png */,
+				47A066B917ABEE4D00557B2B /* HorizontalSelector@2x.png */,
+				47A066BA17ABEE4D00557B2B /* HueSaturationGradient.png */,
+			);
+			path = ColourPicker;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		47A0667117ABE0C600557B2B /* GaugeDesigner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 47A0669817ABE0C600557B2B /* Build configuration list for PBXNativeTarget "GaugeDesigner" */;
+			buildPhases = (
+				47A0666E17ABE0C600557B2B /* Sources */,
+				47A0666F17ABE0C600557B2B /* Frameworks */,
+				47A0667017ABE0C600557B2B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GaugeDesigner;
+			productName = GaugeDesigner;
+			productReference = 47A0667217ABE0C600557B2B /* GaugeDesigner.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		47A0666A17ABE0C600557B2B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Scott Logic";
+			};
+			buildConfigurationList = 47A0666D17ABE0C600557B2B /* Build configuration list for PBXProject "GaugeDesigner" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 47A0666917ABE0C600557B2B;
+			productRefGroup = 47A0667317ABE0C600557B2B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				47A0667117ABE0C600557B2B /* GaugeDesigner */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		47A0667017ABE0C600557B2B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47A0668017ABE0C600557B2B /* InfoPlist.strings in Resources */,
+				47A0668817ABE0C600557B2B /* Default.png in Resources */,
+				47A0668A17ABE0C600557B2B /* Default@2x.png in Resources */,
+				47A0668C17ABE0C600557B2B /* Default-568h@2x.png in Resources */,
+				47A0669517ABE0C600557B2B /* ViewController_iPad.xib in Resources */,
+				47A066BD17ABEE4D00557B2B /* CrosshairSelector.png in Resources */,
+				47A066BE17ABEE4D00557B2B /* CrosshairSelector@2x.png in Resources */,
+				47A066BF17ABEE4D00557B2B /* HorizontalSelector.png in Resources */,
+				47A066C017ABEE4D00557B2B /* HorizontalSelector@2x.png in Resources */,
+				47A066C117ABEE4D00557B2B /* HueSaturationGradient.png in Resources */,
+				472D935F17AFB73D008C432A /* gaugeTabIcon.png in Resources */,
+				472D936317AFB909008C432A /* axisTabIcon.png in Resources */,
+				472D936417AFB909008C432A /* needleTabIcon.png in Resources */,
+				472D936517AFB909008C432A /* rangeTabIcon.png in Resources */,
+				472D936A17AFBA07008C432A /* axisTabIcon@2x.png in Resources */,
+				472D936B17AFBA07008C432A /* gaugeTabIcon@2x.png in Resources */,
+				472D936C17AFBA07008C432A /* needleTabIcon@2x.png in Resources */,
+				472D936D17AFBA07008C432A /* rangeTabIcon@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		47A0666E17ABE0C600557B2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47A0668217ABE0C600557B2B /* main.m in Sources */,
+				47A0668617ABE0C600557B2B /* AppDelegate.m in Sources */,
+				47A0668F17ABE0C600557B2B /* ViewController.m in Sources */,
+				47A0669E17ABE24B00557B2B /* GaugeControlPanel.m in Sources */,
+				47A066A117ABE25600557B2B /* AxisControlPanel.m in Sources */,
+				47A066A417ABE26000557B2B /* NeedleControlPanel.m in Sources */,
+				47A066A717ABE27000557B2B /* RangeControlPanel.m in Sources */,
+				47A066BB17ABEE4D00557B2B /* ColorPickerController.m in Sources */,
+				47A066BC17ABEE4D00557B2B /* ColorPickerGradientView.m in Sources */,
+				47A066C417ABEE5A00557B2B /* CustomSlider.m in Sources */,
+				47A066CB17ABEF1900557B2B /* CustomControls.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		47A0667E17ABE0C600557B2B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				47A0667F17ABE0C600557B2B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		47A0669317ABE0C600557B2B /* ViewController_iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				47A0669417ABE0C600557B2B /* en */,
+			);
+			name = ViewController_iPad.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		47A0669617ABE0C600557B2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		47A0669717ABE0C600557B2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		47A0669917ABE0C600557B2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../..\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GaugeDesigner/GaugeDesigner-Prefix.pch";
+				INFOPLIST_FILE = "GaugeDesigner/GaugeDesigner-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		47A0669A17ABE0C600557B2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../..\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GaugeDesigner/GaugeDesigner-Prefix.pch";
+				INFOPLIST_FILE = "GaugeDesigner/GaugeDesigner-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		47A0666D17ABE0C600557B2B /* Build configuration list for PBXProject "GaugeDesigner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47A0669617ABE0C600557B2B /* Debug */,
+				47A0669717ABE0C600557B2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		47A0669817ABE0C600557B2B /* Build configuration list for PBXNativeTarget "GaugeDesigner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				47A0669917ABE0C600557B2B /* Debug */,
+				47A0669A17ABE0C600557B2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 47A0666A17ABE0C600557B2B /* Project object */;
+}
