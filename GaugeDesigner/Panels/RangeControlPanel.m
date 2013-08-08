@@ -62,8 +62,8 @@
 -(void)updateWithGauge:(SGauge *)gauge
 {
     qrBorderWidth.value = gauge.style.qualitativeRangeBorderWidth;
-    qrInnerRadius.value = gauge.style.qualitativeInnerRadius;
-    qrOuterRadius.value = gauge.style.qualitativeOuterRadius;
+    qrInnerRadius.value = gauge.style.qualitativeInnerPosition;
+    qrOuterRadius.value = gauge.style.qualitativeOuterPosition;
     
     qrBorder.backgroundColor = gauge.style.qualitativeRangeBorderColor;
 }
@@ -110,12 +110,12 @@
 
 -(void)setQRInnerRadius:(UISlider *)sender
 {
-    parentController.gauge.style.qualitativeInnerRadius = sender.value;
+    parentController.gauge.style.qualitativeInnerPosition = sender.value;
 }
 
 -(void)setQROuterRadius:(UISlider *)sender
 {
-    parentController.gauge.style.qualitativeOuterRadius = sender.value;
+    parentController.gauge.style.qualitativeOuterPosition = sender.value;
 }
 
 -(void)setQRBorderWidth:(UISlider *)sender

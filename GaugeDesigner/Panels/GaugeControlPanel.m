@@ -19,14 +19,11 @@
     CustomSlider *sliderStart;
     CustomSlider *sliderEnd;
     UISwitch *isFullCircle;
-    CustomSlider *tickTrackSlider;
     CustomSlider *borderSlider;
     CustomSlider *borderFlatSlider;
     UISwitch *showGlass;
     
     //Color boxes
-    UIView *gaugePrimaryColor;
-    UIView *gaugeSecondaryColor;
     UIView *gaugeInnerBackgroundColor;
     UIView *gaugeOuterBackgroundColor;
     UIView *borderPrimary;
@@ -63,42 +60,32 @@
         
         //Background
         [self addSubview:[CustomControls labelWithTitle:@"Background color:" withOrigin:CGPointMake(75, 140)]];
-        gaugePrimaryColor =[CustomControls colorBoxWithCenter:CGPointMake(240, 150) withType:COLORBOX_PRIMARY withTarget:self];
-        [self addSubview:gaugePrimaryColor];
-        gaugeSecondaryColor =[CustomControls colorBoxWithCenter:CGPointMake(280, 150) withType:COLORBOX_SECONDARY withTarget:self];
-        [self addSubview:gaugeSecondaryColor];
-        
-        [self addSubview:[CustomControls labelWithTitle:@"Ticktrack color:" withOrigin:CGPointMake(75, 180)]];
-        gaugeInnerBackgroundColor =[CustomControls colorBoxWithCenter:CGPointMake(240, 190) withType:COLORBOX_TICKTRACK_PRIMARY withTarget:self];
+        gaugeInnerBackgroundColor =[CustomControls colorBoxWithCenter:CGPointMake(240, 150) withType:COLORBOX_TICKTRACK_PRIMARY withTarget:self];
         [self addSubview:gaugeInnerBackgroundColor];
-        gaugeOuterBackgroundColor =[CustomControls colorBoxWithCenter:CGPointMake(280, 190) withType:COLORBOX_TICKTRACK_SECONDARY withTarget:self];
+        gaugeOuterBackgroundColor =[CustomControls colorBoxWithCenter:CGPointMake(280, 150) withType:COLORBOX_TICKTRACK_SECONDARY withTarget:self];
         [self addSubview:gaugeOuterBackgroundColor];
-        
-        tickTrackSlider = [[CustomSlider alloc] initWithTitle:@"Ticktrack width" withTarget:self andCallback:@selector(setTickTrackWidth:)];
-        tickTrackSlider.center = CGPointMake(385, 230);
-        [self addSubview:tickTrackSlider];
         
         //Bevel
         borderSlider = [[CustomSlider alloc] initWithTitle:@"Bevel width" withTarget:self andCallback:@selector(setBorderWidth:)];
-        borderSlider.center = CGPointMake(385, 260);
+        borderSlider.center = CGPointMake(385, 190);
         borderSlider.maximumValue = 30;
         [self addSubview:borderSlider];
         
-        borderPrimary =[CustomControls colorBoxWithCenter:CGPointMake(710, 260) withType:COLORBOX_BORDER_PRIMARY withTarget:self];
+        borderPrimary =[CustomControls colorBoxWithCenter:CGPointMake(710, 190) withType:COLORBOX_BORDER_PRIMARY withTarget:self];
         [self addSubview:borderPrimary];
-        borderSecondary =[CustomControls colorBoxWithCenter:CGPointMake(740, 260) withType:COLORBOX_BORDER_SECONDARY withTarget:self];
+        borderSecondary =[CustomControls colorBoxWithCenter:CGPointMake(740, 190) withType:COLORBOX_BORDER_SECONDARY withTarget:self];
         [self addSubview:borderSecondary];
         
         borderFlatSlider = [[CustomSlider alloc] initWithTitle:@"Bevel flatness" withTarget:self andCallback:@selector(setFlatness:)];
-        borderFlatSlider.center = CGPointMake(385, 290);
+        borderFlatSlider.center = CGPointMake(385, 220);
         [self addSubview:borderFlatSlider];
         
         //Glass Effect
-        [self addSubview:[CustomControls labelWithTitle:@"Glass Effect:" withOrigin:CGPointMake(75, 320)]];
-        showGlass = [CustomControls switchWithOrigin:CGPointMake(270, 320) withTarget:self withCallback:@selector(setShowGlass:)];
+        [self addSubview:[CustomControls labelWithTitle:@"Glass Effect:" withOrigin:CGPointMake(75, 240)]];
+        showGlass = [CustomControls switchWithOrigin:CGPointMake(270, 240) withTarget:self withCallback:@selector(setShowGlass:)];
         [self addSubview:showGlass];
         
-        glassColor =[CustomControls colorBoxWithCenter:CGPointMake(240, 335) withType:COLORBOX_GLASS withTarget:self];
+        glassColor =[CustomControls colorBoxWithCenter:CGPointMake(240, 255) withType:COLORBOX_GLASS withTarget:self];
         [self addSubview:glassColor];
     }
     return self;
@@ -116,12 +103,9 @@
     borderSlider.value = gauge.style.bevelWidth;
     borderFlatSlider.value = gauge.style.bevelFlatProportion;
     showGlass.on = gauge.style.showGlassEffect;
-    tickTrackSlider.value = 1 - gauge.style.innerRadiusProportion;
     
     gaugeInnerBackgroundColor.backgroundColor = gauge.style.innerBackgroundColor;
     gaugeOuterBackgroundColor.backgroundColor = gauge.style.outerBackgroundColor;
-    gaugePrimaryColor.backgroundColor = gauge.style.primaryBackgroundColor;
-    gaugeSecondaryColor.backgroundColor = (gauge.style.secondaryBackgroundColor) ? gauge.style.secondaryBackgroundColor : gauge.style.primaryBackgroundColor;
     borderPrimary.backgroundColor = gauge.style.bevelPrimaryColor;
     borderSecondary.backgroundColor = gauge.style.bevelSecondaryColor;
     glassColor.backgroundColor = gauge.style.glassColor;
@@ -153,12 +137,6 @@
     currentColorBox.backgroundColor = colorPicker.selectedColor;
     switch (currentColorBox.tag)
     {
-        case COLORBOX_PRIMARY: parentController.gauge.style.primaryBackgroundColor = colorPicker.selectedColor;
-            if (!parentController.gauge.style.secondaryBackgroundColor)
-                gaugeSecondaryColor.backgroundColor = colorPicker.selectedColor;
-            break;
-        case COLORBOX_SECONDARY: parentController.gauge.style.secondaryBackgroundColor = colorPicker.selectedColor;
-            break;
         case COLORBOX_TICKTRACK_PRIMARY: parentController.gauge.style.innerBackgroundColor = colorPicker.selectedColor;
             break;
         case COLORBOX_TICKTRACK_SECONDARY: parentController.gauge.style.outerBackgroundColor = colorPicker.selectedColor;
@@ -200,11 +178,6 @@
 -(void)setFullCircle:(UISwitch*)sender
 {
     parentController.gauge.style.borderIsFullCircle = sender.on;
-}
-
--(void)setTickTrackWidth:(UISlider*)sender
-{
-    parentController.gauge.style.innerRadiusProportion = 1 - sender.value;
 }
 
 -(void)setBorderWidth:(UISlider *)sender

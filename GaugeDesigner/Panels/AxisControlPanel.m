@@ -119,8 +119,8 @@
     minorTickFrequency.value = gauge.axis.minorTickFrequency;
     majorTickLength.value = gauge.style.majorTickSize.height;
     minorTickLength.value = gauge.style.minorTickSize.height;
-    tickLabelOffset.value = gauge.style.tickLabelOffset;
-    baselineOffset.value = gauge.style.tickBaselineOffset;
+    tickLabelOffset.value = gauge.style.tickLabelOffsetFromBaseline;
+    baselineOffset.value = gauge.style.tickBaselinePosition;
     baselineWidth.value = gauge.style.tickBaselineWidth;
     labelsRotate.on = gauge.style.tickLabelsRotate;
     showTicks.on = gauge.style.showTickLabels;
@@ -200,7 +200,7 @@
 
 -(void)setTickLabelOffset:(UISlider*)sender
 {
-    parentController.gauge.style.tickLabelOffset = sender.value;
+    parentController.gauge.style.tickLabelOffsetFromBaseline = sender.value;
 }
 
 -(void)setBaselineWidth:(UISlider*)sender
@@ -210,7 +210,7 @@
 
 -(void)setBaselineOffset:(UISlider*)sender
 {
-    parentController.gauge.style.tickBaselineOffset = sender.value;
+    parentController.gauge.style.tickBaselinePosition = sender.value;
 }
 
 -(void)setLabelsRotate:(UISwitch*)sender
