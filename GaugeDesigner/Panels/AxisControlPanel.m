@@ -92,8 +92,6 @@
         
         baselineOffset = [[CustomSlider alloc] initWithTitle:@"Baseline offset" withTarget:self andCallback:@selector(setBaselineOffset:)];
         baselineOffset.center = CGPointMake(385, 230);
-        baselineOffset.minimumValue = -100;
-        baselineOffset.maximumValue = 100;
         [self addSubview:baselineOffset];
         
         [self addSubview:[CustomControls labelWithTitle:@"Rotate Labels:" withOrigin:CGPointMake(75, 252)]];
