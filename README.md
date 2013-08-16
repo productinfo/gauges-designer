@@ -8,7 +8,7 @@ The Designer shows off the in-depth styling features of the Shinobi Gauge. Move 
 Building the project
 ------------------
 
-In order to build this project you'll need a copy of ShinobiGauges. If you don't have it yet, you can download a free trial from the [ShinobiGauges website](www.shinobicontrols.com).
+In order to build this project you'll need a copy of ShinobiGauges. If you don't have it yet, you can download a free trial from the [ShinobiGauges website](www.shinobicontrols.com/shinobilabs).
 
 Once you've downloaded and unzipped ShinobiGauges, open up the project in Xcode, and drag ShinobiGauges.framework from the finder into Xcode's 'frameworks' group, and Xcode will sort out all the header and linker paths for you.
 
