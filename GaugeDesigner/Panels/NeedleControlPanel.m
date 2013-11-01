@@ -39,44 +39,37 @@
         parentController = controller;
         
         //Needle arrow
-        needleLength = [[CustomSlider alloc] initWithTitle:@"Needle length" withTarget:self andCallback:@selector(setNeedleLength:)];
-        needleLength.center = CGPointMake(385, 50);
-        [self addSubview:needleLength];
+        needleLength = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setNeedleLength:)];
+        needleColor =[CustomControls colorBoxWithType:COLORBOX_NEEDLE withTarget:self];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Needle Length:" control:needleLength colorBox:needleColor]];
         
-        needleColor =[CustomControls colorBoxWithCenter:CGPointMake(720, 50) withType:COLORBOX_NEEDLE withTarget:self];
-        [self addSubview:needleColor];
-        
-        needleWidth = [[CustomSlider alloc] initWithTitle:@"Needle width" withTarget:self andCallback:@selector(setNeedleWidth:)];
-        needleWidth.center = CGPointMake(385, 80);
+        needleWidth = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setNeedleWidth:)];
         needleWidth.maximumValue = 50;
-        [self addSubview:needleWidth];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Needle Width:" control:needleWidth colorBox:nil]];
         
-        needleBorderWidth = [[CustomSlider alloc] initWithTitle:@"Needle border" withTarget:self andCallback:@selector(setNeedleBorderWidth:)];
-        needleBorderWidth.center = CGPointMake(385, 110);
+        needleBorderWidth = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setNeedleBorderWidth:)];
         needleBorderWidth.maximumValue = 50;
-        [self addSubview:needleBorderWidth];
-        
-        needleBorderColor =[CustomControls colorBoxWithCenter:CGPointMake(720, 110) withType:COLORBOX_NEEDLE_BORDER withTarget:self];
-        [self addSubview:needleBorderColor];
+        needleBorderColor =[CustomControls colorBoxWithType:COLORBOX_NEEDLE_BORDER withTarget:self];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Needle Border:" control:needleBorderWidth colorBox:needleBorderColor]];
         
         //Needle knob
-        knobRadius = [[CustomSlider alloc] initWithTitle:@"Knob radius" withTarget:self andCallback:@selector(setKnobRadius:)];
-        knobRadius.center = CGPointMake(385, 140);
+        knobRadius = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setKnobRadius:)];
         knobRadius.maximumValue = 50;
-        [self addSubview:knobRadius];
+        knobColor =[CustomControls colorBoxWithType:COLORBOX_KNOB withTarget:self];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Knob Radius:" control:knobRadius colorBox:knobColor]];
         
-        knobColor =[CustomControls colorBoxWithCenter:CGPointMake(720, 140) withType:COLORBOX_KNOB withTarget:self];
-        [self addSubview:knobColor];
-        
-        knobBorderWidth = [[CustomSlider alloc] initWithTitle:@"Knob border" withTarget:self andCallback:@selector(setKnobBorderWidth:)];
-        knobBorderWidth.center = CGPointMake(385, 170);
+        knobBorderWidth = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setKnobBorderWidth:)];
         knobBorderWidth.maximumValue = 50;
-        [self addSubview:knobBorderWidth];
-        
-        knobBorderColor =[CustomControls colorBoxWithCenter:CGPointMake(720, 170) withType:COLORBOX_KNOB_BORDER withTarget:self];
-        [self addSubview:knobBorderColor];
+        knobBorderColor =[CustomControls colorBoxWithType:COLORBOX_KNOB_BORDER withTarget:self];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Knob Border:" control:knobBorderWidth colorBox:knobBorderColor]];
     }
     return self;
+}
+
+-(void)addManagedSubview:(UIView*)subview
+{
+    subview.center = CGPointMake(384, 40 + self.subviews.count * 35);
+    [self addSubview:subview];
 }
 
 -(void)updateWithGauge:(SGauge *)gauge

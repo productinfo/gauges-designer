@@ -10,13 +10,13 @@
 
 @implementation CustomControls
 
-+(UIView*)colorBoxWithCenter:(CGPoint)center withType:(int)type withTarget:(id)target
++(UIView*)colorBoxWithType:(int)type withTarget:(id)target
 {
-    UIView *colorBox = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 25, 25)];
+    UIView *colorBox = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 26, 26)];
     colorBox.backgroundColor = [UIColor clearColor];
-    colorBox.layer.borderWidth = 1;
-    colorBox.center = center;
     colorBox.tag = type;
+    colorBox.layer.borderWidth = 1;
+    colorBox.layer.borderColor = [UIColor lightGrayColor].CGColor;
     
     //Add a tap gesture recogniser
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:target action:@selector(tappedColorBox:)];
@@ -29,7 +29,6 @@
 {
     UILabel *newLabel = [[UILabel alloc] initWithFrame:CGRectMake(origin.x, origin.y, 0, 0)];
     newLabel.text = title;
-    newLabel.backgroundColor = [UIColor clearColor];
     [newLabel sizeToFit];
     return newLabel;
 }
@@ -44,11 +43,35 @@
     return button;
 }
 
-+(UISwitch*)switchWithOrigin:(CGPoint)origin withTarget:(id)target withCallback:(SEL)callback
++(UISwitch*)switchWithTarget:(id)target withCallback:(SEL)callback
 {
-    UISwitch *customSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(origin.x, origin.y, 40, 25)];
+    UISwitch *customSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(0, 0, 40, 25)];
     [customSwitch addTarget:target action:callback forControlEvents:UIControlEventValueChanged];
     return customSwitch;
+}
+
++(UIView*)viewWithTitle:(NSString*)title control:(UIView*)control colorBox:(UIView*)colorBox
+{
+    UIView *wrapperView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 768, 40)];
+    
+    //Add label
+    UILabel *label = [self labelWithTitle:title withOrigin:CGPointMake(75, 5)];
+    [wrapperView addSubview:label];
+    
+    //Add control
+    CGRect controlFrame = control.frame;
+    controlFrame.origin = CGPointMake(220, 20 - control.bounds.size.height/2);
+    control.frame = controlFrame;
+    [wrapperView addSubview:control];
+    
+    //Add colorbox
+    if (colorBox)
+    {
+        colorBox.center = CGPointMake(700, 20);
+        [wrapperView addSubview:colorBox];
+    }
+    
+    return wrapperView;
 }
 
 @end

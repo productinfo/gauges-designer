@@ -9,9 +9,10 @@
 
 @interface CustomControls : NSObject
 
-+(UIView*)colorBoxWithCenter:(CGPoint)center withType:(int)type withTarget:(id)target;
++(UIView*)colorBoxWithType:(int)type withTarget:(id)target;
 +(UILabel*)labelWithTitle:(NSString*)title withOrigin:(CGPoint)origin;
 +(UIButton*)buttonWithTitle:(NSString*)title withCenter:(CGPoint)center withTarget:(id)target withCallback:(SEL)callback;
-+(UISwitch*)switchWithOrigin:(CGPoint)origin withTarget:(id)target withCallback:(SEL)callback;
++(UISwitch*)switchWithTarget:(id)target withCallback:(SEL)callback;
++(UIView*)viewWithTitle:(NSString*)title control:(UIView*)control colorBox:(UIView*)colorBox;
 
 @end

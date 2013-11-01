@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UIView *placeholder;
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *labels;
 
+@property (weak, nonatomic) IBOutlet UITabBar *tabBar;
+
 - (IBAction)setTheme:(UISegmentedControl*)sender;
 - (IBAction)setValue:(UISlider*)sender;
 - (IBAction)setGaugeType:(UISegmentedControl *)sender;

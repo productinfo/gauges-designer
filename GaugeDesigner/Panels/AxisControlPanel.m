@@ -23,9 +23,15 @@
     CustomSlider *tickLabelOffset;
     CustomSlider *baselineWidth;
     CustomSlider *baselineOffset;
+    CustomSlider *paddingAroundAxis;
     UISwitch *labelsRotate;
     UISwitch *showTicks;
     UISegmentedControl *tickAlign;
+    
+    //Axis Mirroring
+    UISwitch *mirrorBaseline;
+    UISwitch *mirrorLabels;
+    UISwitch *mirrorTicks;
     
     //Color boxes
     UIView *majorTickColor;
@@ -45,70 +51,72 @@
         parentController = controller;
 
         // Tick marks
-        majorTickFrequency = [[CustomSlider alloc] initWithTitle:@"Major frequency" withTarget:self andCallback:@selector(setMajorFrequency:)];
-        majorTickFrequency.center = CGPointMake(385, 50);
+        majorTickFrequency = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setMajorFrequency:)];
         majorTickFrequency.maximumValue = 100;
-        [self addSubview:majorTickFrequency];
+        majorTickColor = [CustomControls colorBoxWithType:COLORBOX_MAJOR_TICK withTarget:self];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Major Frequency:" control:majorTickFrequency colorBox:majorTickColor]];
         
-        majorTickColor =[CustomControls colorBoxWithCenter:CGPointMake(720, 50) withType:COLORBOX_MAJOR_TICK withTarget:self];
-        [self addSubview:majorTickColor];
-        
-        minorTickFrequency = [[CustomSlider alloc] initWithTitle:@"Minor frequency" withTarget:self andCallback:@selector(setMinorFrequency:)];
-        minorTickFrequency.center = CGPointMake(385, 80);
+        minorTickFrequency = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setMinorFrequency:)];
         minorTickFrequency.maximumValue = 100;
-        [self addSubview:minorTickFrequency];
+        minorTickColor = [CustomControls colorBoxWithType:COLORBOX_MINOR_TICK withTarget:self];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Minor Frequency:" control:minorTickFrequency colorBox:minorTickColor]];
         
-        minorTickColor = [CustomControls colorBoxWithCenter:CGPointMake(720, 80) withType:COLORBOX_MINOR_TICK withTarget:self];
-        [self addSubview:minorTickColor];
-        
-        majorTickLength = [[CustomSlider alloc] initWithTitle:@"Major ticksize" withTarget:self andCallback:@selector(setMajorTickSize:)];
-        majorTickLength.center = CGPointMake(385, 110);
+        majorTickLength = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setMajorTickSize:)];
         majorTickLength.maximumValue = 50;
-        [self addSubview:majorTickLength];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Minor Ticksize:" control:majorTickLength colorBox:nil]];
         
-        minorTickLength = [[CustomSlider alloc] initWithTitle:@"Minor ticksize" withTarget:self andCallback:@selector(setMinorTickSize:)];
-        minorTickLength.center = CGPointMake(385, 140);
+        minorTickLength = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setMinorTickSize:)];
         minorTickLength.maximumValue = 50;
-        [self addSubview:minorTickLength];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Minor Ticksize:" control:minorTickLength colorBox:nil]];
         
         //Tick Labels
-        tickLabelOffset = [[CustomSlider alloc] initWithTitle:@"Tick label offset" withTarget:self andCallback:@selector(setTickLabelOffset:)];
-        tickLabelOffset.center = CGPointMake(385, 170);
+        tickLabelOffset = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setTickLabelOffset:)];
         tickLabelOffset.minimumValue = -100;
         tickLabelOffset.maximumValue = 100;
-        [self addSubview:tickLabelOffset];
+        tickLabelColor = [CustomControls colorBoxWithType:COLORBOX_TICK_LABEL withTarget:self];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Tick Label Offset:" control:tickLabelOffset colorBox:tickLabelColor]];
         
-        tickLabelColor =[CustomControls colorBoxWithCenter:CGPointMake(720, 170) withType:COLORBOX_TICK_LABEL withTarget:self];
-        [self addSubview:tickLabelColor];
+        paddingAroundAxis = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setPaddingAroundAxis:)];
+        paddingAroundAxis.maximumValue = 100;
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Label padding" control:paddingAroundAxis colorBox:nil]];
         
         //Baseline
-        baselineWidth = [[CustomSlider alloc] initWithTitle:@"Baseline width" withTarget:self andCallback:@selector(setBaselineWidth:)];
-        baselineWidth.center = CGPointMake(385, 200);
+        baselineWidth = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setBaselineWidth:)];
         baselineWidth.maximumValue = 20;
-        [self addSubview:baselineWidth];
+        baselineColor = [CustomControls colorBoxWithType:COLORBOX_BASELINE withTarget:self];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Baseline Width:" control:baselineWidth colorBox:baselineColor]];
         
-        baselineColor =[CustomControls colorBoxWithCenter:CGPointMake(720, 200) withType:COLORBOX_BASELINE withTarget:self];
-        [self addSubview:baselineColor];
+        baselineOffset = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setBaselineOffset:)];
+        baselineOffset.minimumValue = 0;
+        baselineOffset.maximumValue = 2;
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Baseline Offset:" control:baselineOffset colorBox:nil]];
         
-        baselineOffset = [[CustomSlider alloc] initWithTitle:@"Baseline offset" withTarget:self andCallback:@selector(setBaselineOffset:)];
-        baselineOffset.center = CGPointMake(385, 230);
-        [self addSubview:baselineOffset];
+        labelsRotate = [CustomControls switchWithTarget:self withCallback:@selector(setLabelsRotate:)];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Rotate Labels:" control:labelsRotate colorBox:nil]];
         
-        [self addSubview:[CustomControls labelWithTitle:@"Rotate Labels:" withOrigin:CGPointMake(75, 252)]];
-        labelsRotate = [CustomControls switchWithOrigin:CGPointMake(230, 250) withTarget:self withCallback:@selector(setLabelsRotate:)];
-        [self addSubview:labelsRotate];
+        showTicks = [CustomControls switchWithTarget:self withCallback:@selector(setShowTickLabels:)];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Show Ticklabels:" control:showTicks colorBox:nil]];
         
-        [self addSubview:[CustomControls labelWithTitle:@"Show Ticklabels:" withOrigin:CGPointMake(400, 252)]];
-        showTicks = [CustomControls switchWithOrigin:CGPointMake(560, 250) withTarget:self withCallback:@selector(setShowTickLabels:)];
-        [self addSubview:showTicks];
-        
-        [self addSubview:[CustomControls labelWithTitle:@"Tick Alignment:" withOrigin:CGPointMake(75, 292)]];
         tickAlign = [[UISegmentedControl alloc] initWithItems:@[@"Top", @"Center", @"Bottom"]];
-        tickAlign.center = CGPointMake(350, 310);
         [tickAlign addTarget:self action:@selector(setTickAlignment:) forControlEvents:UIControlEventValueChanged];
-        [self addSubview:tickAlign];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Tick Alignment:" control:tickAlign colorBox:nil]];
+        
+        mirrorLabels = [CustomControls switchWithTarget:self withCallback:@selector(setMirrorLabels:)];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Mirror Labels:" control:mirrorLabels colorBox:nil]];
+        
+        mirrorTicks = [CustomControls switchWithTarget:self withCallback:@selector(setMirrorTicks:)];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Mirror Ticks:" control:mirrorTicks colorBox:nil]];
+        
+        mirrorBaseline = [CustomControls switchWithTarget:self withCallback:@selector(setMirrorBaseline:)];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Mirror Baseline:" control:mirrorBaseline colorBox:nil]];
     }
     return self;
+}
+
+-(void)addManagedSubview:(UIView*)subview
+{
+    subview.center = CGPointMake(384, 40 + self.subviews.count * 35);
+    [self addSubview:subview];
 }
 
 -(void)updateWithGauge:(SGauge *)gauge
@@ -123,6 +131,12 @@
     labelsRotate.on = gauge.style.tickLabelsRotate;
     showTicks.on = gauge.style.showTickLabels;
     tickAlign.selectedSegmentIndex = 0;
+    paddingAroundAxis.value = gauge.style.paddingAroundAxis;
+    
+    //Mirroring
+    mirrorLabels.on = gauge.style.axisMirrorBehavior & SGaugeTickMirrorTicklabels;
+    mirrorBaseline.on = gauge.style.axisMirrorBehavior & SGaugeTickMirrorBaseline;
+    mirrorTicks.on = gauge.style.axisMirrorBehavior & SGaugeTickMirrorTickmarks;
     
     majorTickColor.backgroundColor = gauge.style.majorTickColor;
     minorTickColor.backgroundColor = gauge.style.minorTickColor;
@@ -201,6 +215,11 @@
     parentController.gauge.style.tickLabelOffsetFromBaseline = sender.value;
 }
 
+-(void)setPaddingAroundAxis:(UISlider*)sender
+{
+    parentController.gauge.style.paddingAroundAxis = sender.value;
+}
+
 -(void)setBaselineWidth:(UISlider*)sender
 {
     parentController.gauge.style.tickBaselineWidth = sender.value;
@@ -231,6 +250,42 @@
             break;
         case 2: parentController.gauge.style.tickMarkAlignment = SGaugeTickAlignBottom;
             break;
+    }
+}
+
+-(void)setMirrorTicks:(UISwitch*)sender
+{
+    if (sender.on)
+    {
+        parentController.gauge.style.axisMirrorBehavior |= SGaugeTickMirrorTickmarks;
+    }
+    else
+    {
+        parentController.gauge.style.axisMirrorBehavior &= ~SGaugeTickMirrorTickmarks;
+    }
+}
+
+-(void)setMirrorLabels:(UISwitch*)sender
+{
+    if (sender.on)
+    {
+        parentController.gauge.style.axisMirrorBehavior |= SGaugeTickMirrorTicklabels;
+    }
+    else
+    {
+        parentController.gauge.style.axisMirrorBehavior &= ~SGaugeTickMirrorTicklabels;
+    }
+}
+
+-(void)setMirrorBaseline:(UISwitch*)sender
+{
+    if (sender.on)
+    {
+        parentController.gauge.style.axisMirrorBehavior |= SGaugeTickMirrorBaseline;
+    }
+    else
+    {
+        parentController.gauge.style.axisMirrorBehavior &= ~SGaugeTickMirrorBaseline;
     }
 }
 @end
