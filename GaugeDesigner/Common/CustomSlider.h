@@ -13,6 +13,6 @@
 @property (nonatomic, assign) float minimumValue;
 @property (nonatomic, assign) float maximumValue;
 
--(id)initWithTitle:(NSString*)title withTarget:(id)target andCallback:(SEL)callbackFunc;
+-(id)initWithTarget:(id)target andCallback:(SEL)callbackFunc;
 
 @end

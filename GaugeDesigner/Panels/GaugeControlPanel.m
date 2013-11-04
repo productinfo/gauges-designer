@@ -22,6 +22,8 @@
     CustomSlider *borderSlider;
     CustomSlider *borderFlatSlider;
     UISwitch *showGlass;
+    UISwitch *horizontal;
+    CustomSlider *cornerRadius;
     
     //Color boxes
     UIView *gaugeInnerBackgroundColor;
@@ -43,52 +45,53 @@
         parentController = controller;
         
         //Gauge range
-        sliderStart = [[CustomSlider alloc] initWithTitle:@"Angle start" withTarget:self andCallback:@selector(setAngleStart:)];
-        sliderEnd = [[CustomSlider alloc] initWithTitle:@"Angle stop" withTarget:self andCallback:@selector(setAngleEnd:)];
+        sliderStart = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setAngleStart:)];
+        sliderEnd = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setAngleEnd:)];
         sliderStart.minimumValue = -M_PI + 0.001;
         sliderStart.maximumValue = M_PI;
         sliderEnd.minimumValue = -M_PI + 0.001;
         sliderEnd.maximumValue = M_PI;
         sliderStart.center = CGPointMake(385, 50);
         sliderEnd.center = CGPointMake(385, 80);
-        [self addSubview:sliderStart];
-        [self addSubview:sliderEnd];
+        gaugeInnerBackgroundColor = [CustomControls colorBoxWithType:COLORBOX_TICKTRACK_PRIMARY withTarget:self];
+        gaugeOuterBackgroundColor = [CustomControls colorBoxWithType:COLORBOX_TICKTRACK_SECONDARY withTarget:self];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Angle start:" control:sliderStart colorBox:gaugeInnerBackgroundColor]];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Angle end:" control:sliderEnd colorBox:gaugeOuterBackgroundColor]];
         
-        [self addSubview:[CustomControls labelWithTitle:@"Full circle:" withOrigin:CGPointMake(75, 105)]];
-        isFullCircle = [CustomControls switchWithOrigin:CGPointMake(230, 100) withTarget:self withCallback:@selector(setFullCircle:)];
-        [self addSubview:isFullCircle];
-        
-        //Background
-        [self addSubview:[CustomControls labelWithTitle:@"Background color:" withOrigin:CGPointMake(75, 140)]];
-        gaugeInnerBackgroundColor =[CustomControls colorBoxWithCenter:CGPointMake(240, 150) withType:COLORBOX_TICKTRACK_PRIMARY withTarget:self];
-        [self addSubview:gaugeInnerBackgroundColor];
-        gaugeOuterBackgroundColor =[CustomControls colorBoxWithCenter:CGPointMake(280, 150) withType:COLORBOX_TICKTRACK_SECONDARY withTarget:self];
-        [self addSubview:gaugeOuterBackgroundColor];
+        isFullCircle = [CustomControls switchWithTarget:self withCallback:@selector(setFullCircle:)];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Full Circle:" control:isFullCircle colorBox:nil]];
         
         //Bevel
-        borderSlider = [[CustomSlider alloc] initWithTitle:@"Bevel width" withTarget:self andCallback:@selector(setBorderWidth:)];
-        borderSlider.center = CGPointMake(385, 190);
+        borderSlider = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setBorderWidth:)];
         borderSlider.maximumValue = 30;
-        [self addSubview:borderSlider];
+        borderPrimary =[CustomControls colorBoxWithType:COLORBOX_BORDER_PRIMARY withTarget:self];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Bevel width:" control:borderSlider colorBox:borderPrimary]];
         
-        borderPrimary =[CustomControls colorBoxWithCenter:CGPointMake(710, 190) withType:COLORBOX_BORDER_PRIMARY withTarget:self];
-        [self addSubview:borderPrimary];
-        borderSecondary =[CustomControls colorBoxWithCenter:CGPointMake(740, 190) withType:COLORBOX_BORDER_SECONDARY withTarget:self];
-        [self addSubview:borderSecondary];
+        borderFlatSlider = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setFlatness:)];
+        borderSecondary = [CustomControls colorBoxWithType:COLORBOX_BORDER_SECONDARY withTarget:self];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Bevel flatness:" control:borderFlatSlider colorBox:borderSecondary]];
         
-        borderFlatSlider = [[CustomSlider alloc] initWithTitle:@"Bevel flatness" withTarget:self andCallback:@selector(setFlatness:)];
-        borderFlatSlider.center = CGPointMake(385, 220);
-        [self addSubview:borderFlatSlider];
+        //Corner radius
+        cornerRadius = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setCornerRadius:)];
+        cornerRadius.maximumValue = 25;
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Corner Radius:" control:cornerRadius colorBox:nil]];
         
         //Glass Effect
-        [self addSubview:[CustomControls labelWithTitle:@"Glass Effect:" withOrigin:CGPointMake(75, 240)]];
-        showGlass = [CustomControls switchWithOrigin:CGPointMake(270, 240) withTarget:self withCallback:@selector(setShowGlass:)];
-        [self addSubview:showGlass];
-        
-        glassColor =[CustomControls colorBoxWithCenter:CGPointMake(240, 255) withType:COLORBOX_GLASS withTarget:self];
-        [self addSubview:glassColor];
+        showGlass = [CustomControls switchWithTarget:self withCallback:@selector(setShowGlass:)];
+        glassColor =[CustomControls colorBoxWithType:COLORBOX_GLASS withTarget:self];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Glass Effect:" control:showGlass colorBox:glassColor]];
+
+        //Orientation
+        horizontal = [CustomControls switchWithTarget:self withCallback:@selector(setOrientation:)];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Horizontal:" control:horizontal colorBox:nil]];
     }
     return self;
+}
+
+-(void)addManagedSubview:(UIView*)subview
+{
+    subview.center = CGPointMake(384, 40 + self.subviews.count * 35);
+    [self addSubview:subview];
 }
 
 -(void)updateWithGauge:(SGauge *)gauge
@@ -99,10 +102,17 @@
         sliderStart.value = radial.arcAngleStart;
         sliderEnd.value = radial.arcAngleEnd;
     }
+    else
+    {
+        SGaugeLinear *linear = (SGaugeLinear*)gauge;
+        horizontal.on = (linear.orientation == SGaugeLinearOrientationHorizontal);
+    }
+    
     isFullCircle.on = gauge.style.borderIsFullCircle;
     borderSlider.value = gauge.style.bevelWidth;
     borderFlatSlider.value = gauge.style.bevelFlatProportion;
     showGlass.on = gauge.style.showGlassEffect;
+    cornerRadius.value = gauge.style.cornerRadius;
     
     gaugeInnerBackgroundColor.backgroundColor = gauge.style.innerBackgroundColor;
     gaugeOuterBackgroundColor.backgroundColor = gauge.style.outerBackgroundColor;
@@ -190,9 +200,26 @@
     parentController.gauge.style.bevelFlatProportion = sender.value;
 }
 
+-(void)setCornerRadius:(UISlider *)sender
+{
+    parentController.gauge.style.cornerRadius = sender.value;
+}
+
 -(void)setShowGlass:(UISwitch *)sender
 {
     parentController.gauge.style.showGlassEffect = sender.on;
 }
+
+-(void)setOrientation:(UISwitch *)sender
+{
+    SGaugeLinearOrientation value = (sender.on) ? SGaugeLinearOrientationHorizontal : SGaugeLinearOrientationVertical;
+    
+    if ([parentController.gauge isKindOfClass:[SGaugeLinear class]])
+    {
+        CGRect bounds = (value == SGaugeLinearOrientationHorizontal) ? CGRectMake(0, 0, 300, 50) : CGRectMake(0, 0, 50, 300);
+        parentController.gauge.axis.frame = bounds;
+        parentController.gauge.bounds = bounds;
+        [parentController.gauge setValue:@(value) forKey:@"orientation"];
+    }}
 
 @end

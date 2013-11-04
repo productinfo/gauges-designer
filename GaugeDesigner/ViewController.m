@@ -54,6 +54,9 @@
     self.controlPanel.layer.shadowOpacity = 0.5;
     self.controlPanel.layer.shadowColor = [UIColor blackColor].CGColor;
     [currentView updateWithGauge:self.gauge];
+    
+    //Set first item as selected
+    [self.tabBar setSelectedItem:[self.tabBar.items firstObject]];
 }
 
 - (void)viewDidUnload {
@@ -75,7 +78,6 @@
     //Save custom values
     SGaugeStyle *style = [self.gauge.style copy];
     float value = self.gauge.value;
-    BOOL colorActive = self.gauge.colorActiveSegment;
     NSArray *ranges = self.gauge.qualitativeRanges;
     
     //Create new gauge
@@ -94,8 +96,9 @@
     //Restore values
     self.gauge.style = style;
     self.gauge.value = value;
-    self.gauge.colorActiveSegment = colorActive;
     self.gauge.qualitativeRanges = ranges;
+    
+    [currentView updateWithGauge:self.gauge];
 }
 
 -(IBAction)setTheme:(UISegmentedControl*)sender {
