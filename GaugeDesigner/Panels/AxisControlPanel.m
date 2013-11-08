@@ -131,7 +131,7 @@
     labelsRotate.on = gauge.style.tickLabelsRotate;
     showTicks.on = gauge.style.showTickLabels;
     tickAlign.selectedSegmentIndex = 0;
-    paddingAroundAxis.value = gauge.style.paddingAroundAxis;
+    paddingAroundAxis.value = gauge.style.axisPadding;
     
     //Mirroring
     mirrorLabels.on = gauge.style.axisMirrorBehavior & SGaugeTickMirrorTicklabels;
@@ -217,7 +217,7 @@
 
 -(void)setPaddingAroundAxis:(UISlider*)sender
 {
-    parentController.gauge.style.paddingAroundAxis = sender.value;
+    parentController.gauge.style.axisPadding = sender.value;
 }
 
 -(void)setBaselineWidth:(UISlider*)sender

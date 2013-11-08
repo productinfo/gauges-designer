@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47002AC4182D4E290064082D /* ShinobiGauges.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47002AC3182D4E290064082D /* ShinobiGauges.framework */; };
+		47002AC6182D4E2D0064082D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47002AC5182D4E2D0064082D /* Security.framework */; };
+		47002AC8182D4E310064082D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47002AC7182D4E310064082D /* QuartzCore.framework */; };
 		472D935F17AFB73D008C432A /* gaugeTabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 472D935E17AFB73D008C432A /* gaugeTabIcon.png */; };
 		472D936317AFB909008C432A /* axisTabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 472D936017AFB909008C432A /* axisTabIcon.png */; };
 		472D936417AFB909008C432A /* needleTabIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 472D936117AFB909008C432A /* needleTabIcon.png */; };
@@ -30,7 +33,6 @@
 		47A066A117ABE25600557B2B /* AxisControlPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A066A017ABE25600557B2B /* AxisControlPanel.m */; };
 		47A066A417ABE26000557B2B /* NeedleControlPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A066A317ABE26000557B2B /* NeedleControlPanel.m */; };
 		47A066A717ABE27000557B2B /* RangeControlPanel.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A066A617ABE27000557B2B /* RangeControlPanel.m */; };
-		47A066AD17ABED8800557B2B /* ShinobiGauges.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47A066AC17ABED8800557B2B /* ShinobiGauges.framework */; };
 		47A066BB17ABEE4D00557B2B /* ColorPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A066B317ABEE4D00557B2B /* ColorPickerController.m */; };
 		47A066BC17ABEE4D00557B2B /* ColorPickerGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A066B517ABEE4D00557B2B /* ColorPickerGradientView.m */; };
 		47A066BD17ABEE4D00557B2B /* CrosshairSelector.png in Resources */ = {isa = PBXBuildFile; fileRef = 47A066B617ABEE4D00557B2B /* CrosshairSelector.png */; };
@@ -43,6 +45,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47002AC3182D4E290064082D /* ShinobiGauges.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ShinobiGauges.framework; path = Library/Frameworks/ShinobiGauges.framework; sourceTree = DEVELOPER_DIR; };
+		47002AC5182D4E2D0064082D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		47002AC7182D4E310064082D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		472D935E17AFB73D008C432A /* gaugeTabIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gaugeTabIcon.png; sourceTree = "<group>"; };
 		472D936017AFB909008C432A /* axisTabIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = axisTabIcon.png; sourceTree = "<group>"; };
 		472D936117AFB909008C432A /* needleTabIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = needleTabIcon.png; sourceTree = "<group>"; };
@@ -76,7 +81,6 @@
 		47A066A517ABE27000557B2B /* RangeControlPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RangeControlPanel.h; sourceTree = "<group>"; };
 		47A066A617ABE27000557B2B /* RangeControlPanel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RangeControlPanel.m; sourceTree = "<group>"; };
 		47A066A917ABE6F000557B2B /* ControlPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ControlPanel.h; sourceTree = "<group>"; };
-		47A066AC17ABED8800557B2B /* ShinobiGauges.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShinobiGauges.framework; sourceTree = "<group>"; };
 		47A066B217ABEE4D00557B2B /* ColorPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerController.h; sourceTree = "<group>"; };
 		47A066B317ABEE4D00557B2B /* ColorPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorPickerController.m; sourceTree = "<group>"; };
 		47A066B417ABEE4D00557B2B /* ColorPickerGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorPickerGradientView.h; sourceTree = "<group>"; };
@@ -97,10 +101,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47002AC8182D4E310064082D /* QuartzCore.framework in Frameworks */,
+				47002AC6182D4E2D0064082D /* Security.framework in Frameworks */,
+				47002AC4182D4E290064082D /* ShinobiGauges.framework in Frameworks */,
 				47A0667617ABE0C600557B2B /* UIKit.framework in Frameworks */,
 				47A0667817ABE0C600557B2B /* Foundation.framework in Frameworks */,
 				47A0667A17ABE0C600557B2B /* CoreGraphics.framework in Frameworks */,
-				47A066AD17ABED8800557B2B /* ShinobiGauges.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +148,9 @@
 		47A0667417ABE0C600557B2B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				47A066AC17ABED8800557B2B /* ShinobiGauges.framework */,
+				47002AC7182D4E310064082D /* QuartzCore.framework */,
+				47002AC5182D4E2D0064082D /* Security.framework */,
+				47002AC3182D4E290064082D /* ShinobiGauges.framework */,
 				47A0667517ABE0C600557B2B /* UIKit.framework */,
 				47A0667717ABE0C600557B2B /* Foundation.framework */,
 				47A0667917ABE0C600557B2B /* CoreGraphics.framework */,
@@ -402,8 +410,8 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../..\"",
+					"$(SRCROOT)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GaugeDesigner/GaugeDesigner-Prefix.pch";
@@ -420,8 +428,8 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)\"",
-					"\"$(SRCROOT)/../..\"",
+					"$(SRCROOT)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GaugeDesigner/GaugeDesigner-Prefix.pch";
