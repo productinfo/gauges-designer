@@ -84,8 +84,8 @@
 {
     //Qualitative Ranges
     qrBorderWidth.value = gauge.style.qualitativeRangeBorderWidth;
-    qrInnerRadius.value = gauge.style.qualitativeInnerPosition;
-    qrOuterRadius.value = gauge.style.qualitativeOuterPosition;
+    qrInnerRadius.value = gauge.style.qualitativeRangeInnerPosition;
+    qrOuterRadius.value = gauge.style.qualitativeRangeOuterPosition;
     
     qrBorder.backgroundColor = gauge.style.qualitativeRangeBorderColor;
     
@@ -144,12 +144,12 @@
 
 -(void)setQRInnerRadius:(UISlider *)sender
 {
-    parentController.gauge.style.qualitativeInnerPosition = sender.value;
+    parentController.gauge.style.qualitativeRangeInnerPosition = sender.value;
 }
 
 -(void)setQROuterRadius:(UISlider *)sender
 {
-    parentController.gauge.style.qualitativeOuterPosition = sender.value;
+    parentController.gauge.style.qualitativeRangeOuterPosition = sender.value;
 }
 
 -(void)setQRBorderWidth:(UISlider *)sender
@@ -161,9 +161,9 @@
 {
     if (sender.on)
     {
-        parentController.gauge.qualitativeRanges = @[[SGaugeQualitativeRange rangeWithMinimum:@35 withMaximum:@60 withColor:[UIColor greenColor]],
-                                             [SGaugeQualitativeRange rangeWithMinimum:@60 withMaximum:@75 withColor:[UIColor orangeColor]],
-                                             [SGaugeQualitativeRange rangeWithMinimum:@75 withMaximum:nil withColor:[UIColor redColor]]];
+        parentController.gauge.qualitativeRanges = @[[SGaugeQualitativeRange rangeWithMinimum:@35 maximum:@60 color:[UIColor greenColor]],
+                                             [SGaugeQualitativeRange rangeWithMinimum:@60 maximum:@75 color:[UIColor orangeColor]],
+                                             [SGaugeQualitativeRange rangeWithMinimum:@75 maximum:nil color:[UIColor redColor]]];
     }
     else
     {
