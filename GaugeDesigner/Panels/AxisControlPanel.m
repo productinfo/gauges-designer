@@ -63,7 +63,7 @@
         
         majorTickLength = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setMajorTickSize:)];
         majorTickLength.maximumValue = 50;
-        [self addManagedSubview:[CustomControls viewWithTitle:@"Minor Ticksize:" control:majorTickLength colorBox:nil]];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Major Ticksize:" control:majorTickLength colorBox:nil]];
         
         minorTickLength = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setMinorTickSize:)];
         minorTickLength.maximumValue = 50;
@@ -78,7 +78,7 @@
         
         paddingAroundAxis = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setPaddingAroundAxis:)];
         paddingAroundAxis.maximumValue = 100;
-        [self addManagedSubview:[CustomControls viewWithTitle:@"Label padding" control:paddingAroundAxis colorBox:nil]];
+        [self addManagedSubview:[CustomControls viewWithTitle:@"Label Padding:" control:paddingAroundAxis colorBox:nil]];
         
         //Baseline
         baselineWidth = [[CustomSlider alloc] initWithTarget:self andCallback:@selector(setBaselineWidth:)];
