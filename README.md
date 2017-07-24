@@ -23,7 +23,7 @@ If you’re using the trial version you’ll need to add your license key. To do
     	[super viewDidLoad];
 		// Do any additional setup after loading the view, typically from a nib.
     	
-    	[ShinobiGauges setLicenseKey:@""]; // Add license key here
+    	[ShinobiGauges setTrialKey:@""]; // Add trial key here
     	...
     }
 
